@@ -16,3 +16,7 @@ for _ in range(b):
 
 # for i in itertools.repeat("*", b):
 #   print(i * a )
+
+# 다른 풀이
+# answer = ('*' * a + '\n') * b
+# print(answer)
