@@ -1,0 +1,24 @@
+# 프로그래머스 모바일은 개인정보 보호를 위해 고지서를 보낼 때 고객들의 전화번호의 일부를 가립니다.
+# 전화번호가 문자열 phone_number로 주어졌을 때, 전화번호의 뒷 4자리를 제외한 나머지 숫자를 전부 *으로 가린 문자열을 리턴하는 함수, solution을 완성해주세요.
+
+# 푼 방법1
+# def solution(phone_number):
+#     front = ""
+#     back = phone_number[-4:]
+#     for n in phone_number[:-4]:
+#         n = "*"
+#         front += n 
+#     return front + back
+
+# 다른 풀이 참고 방법2
+# def solution(phone_number):
+#     return (len(phone_number[:-4]) * "*") + phone_number[-4:]
+
+# 다른 풀이 참고 방법3
+def solution(phone_number):
+    return (len(phone_number)-4) * "*" + phone_number[-4:]
+
+# phone_number = "01033334444"
+phone_number = "027778888"
+
+solution(phone_number)
