@@ -20,11 +20,24 @@
 # december = 31
 
 # 방법 1
-def solution(a, b):
-    day = ['FRI', 'SAT', 'SUN', 'MON', 'TUE', 'WED', 'THU']
-    date = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-    return day[(sum(date[:a-1]) + b) % 7  - 1]
+# def solution(a, b):
+#     day = ['FRI', 'SAT', 'SUN', 'MON', 'TUE', 'WED', 'THU']
+#     date = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+#     return day[(sum(date[:a-1]) + b) % 7  - 1]
 
+
+# 다른 풀이 참고 방법2
+# datetime 라이브러리 사용하기
+# 과정1
+    # print(datetime.datetime(2016, a, b))
+# 과정2
+    # print(datetime.datetime(2016, a, b).weekday())
+import datetime
+
+def solution(a, b):
+    day = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN']
+    return day[datetime.datetime(2016, a, b).weekday()]
+    
 
 a = 5
 b = 24
