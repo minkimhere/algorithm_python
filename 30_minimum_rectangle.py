@@ -22,13 +22,18 @@ def solution(sizes):
         width.append(size[0])
         height.append(size[1])
     return max(width) * max(height)
+  
 # def solution(sizes):
 #     return  max(sorted(size)[0] for size in sizes) * max(sorted(size)[1] for size in sizes)
+  
+# solution = lambda sizes: max(sorted(size)[0] for size in sizes) * max(sorted(size)[1] for size in sizes)
 
 
 # 다른 풀이 참고 방법2
 # def solution(sizes):
 #     return max(max(size) for size in sizes) * max(min(size) for size in sizes)
+  
+# solution = lambda sizes: max(max(size) for size in sizes) * max(min(size) for size in sizes)
 
 
 sizes = [[60, 50], [30, 70], [60, 30], [80, 40]]
