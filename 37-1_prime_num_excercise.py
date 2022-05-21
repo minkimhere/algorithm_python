@@ -48,24 +48,63 @@
 #       if num % i != 0:
 #         print(num)
 
+
 # 3. n1 n2가 주어졌을 때 n1, n2 사이에 있는 소수 구하기
 # import sys
 
 # n1, n2 = map(int, sys.stdin.readline().split())
 
-def solution(n1, n2):
-  for n in range(n1, n2+1):
-    if n == 1:
-      continue
-    for i in range(2, int(n**0.5) +1):
-      if n % i == 0:
-        break
-    else: 
-      print(n)
+# def solution(n1, n2):
+#   for n in range(n1, n2+1):
+#     if n == 1:
+#       continue
+#     for i in range(2, int(n**0.5) +1):
+#       if n % i == 0:
+#         break
+#     else: 
+#       print(n)
 
-      
+
+# 3 다른 풀이
+# 에라토스테네스의 체
+# https://www.acmicpc.net/source/28320052
+# https://velog.io/@gillog/%EC%97%90%EB%9D%BC%ED%86%A0%EC%8A%A4%ED%85%8C%EB%84%A4%EC%8A%A4%EC%9D%98-%EC%B2%B4
+# def solution(m, n):
+#   sieve = [True] * (n+1)
+#   for i in range(2, int(n**0.5)+1):
+#       print('아이', i)
+#       # if sieve[i]:
+#       for j in range(i*2, n+1, i): # 자기 자신은 소수니까 제외하고 만약 3이라면 3은 이미 소수니까 제외하고 6부터 지울건데 3의 배수로 지울거니까 3번째 파라미터로 i(3)씩 배수로 해준다는 뜻
+#         print('제이', j)
+#         sieve[j] = False
+  # for i in range(m, n):
+    # if i > 1:
+      # if sieve[i]:
+        # print(i)
+
+
+# 백준 제출용
+import sys
+
+m, n = map(int, sys.stdin.readline().split())
+
+# 체
+sieve = [True] * (n+1) 
+
+for i in range(2, int(n**0.5)+1): # 1 2 4 8 16 이라면, (1,16) (2,8) 짝 지어져서 어차피 1,2만 검사하면 뒤도 같은 효과라서 앞 부분만 검사해도 됨
+    for j in range(i*2, n+1, i): # 에라토스테네스의 체 가장 작은 수(지우면서 맨 처음 남아있는 작은 수는 어차피 소수임) 제외 자기의 배수로 지우기
+        sieve[j] = False
+for i in range(m, n+1):
+    if i > 1:
+        if sieve[i]:
+            print(i)
+        
+
+
 # nums = 18
 # nums = [1,5,7,8,9,11]
-n1 = 1
-n2 = 16
-solution(n1, n2)
+# solution(n1, n2)
+
+# m = 3
+# n = 16
+# solution(m, n)
