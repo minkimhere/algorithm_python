@@ -19,8 +19,7 @@
 #     for i in range(2, nums):
 #      if nums % i == 0:
 #        return print('소수가 아닙니다.')
-#      else:
-#        return print('소수입니다.')
+#     return print('소수입니다.')
 
 # 약수의 특성을 활용하면 연산 횟수를 반으로 줄일 수 있음.
 # 예를들어 16의 약수 : 1 2 4 8 16 
@@ -30,11 +29,12 @@
 # 그러면 16의 제곱근을 기준으로 작은 것만 검사하자
 
 # def solution(nums):
+#   print(int(nums**0.5 + 1))
 #   for i in range(2, int(nums**0.5 + 1)):
+#     print(i)
 #     if nums % i == 0:
 #       return print('소수가 아닙니다')
-#     else:
-#       return print('소수입니다.')
+#   return print('소수입니다.')
 
 
 # 2. array로 주어졌을 때 소수만 구하기
@@ -45,24 +45,24 @@
 #     if num < 2:
 #       continue
 #     for i in range(2, int(num**0.5 + 1)):
-#       if num % i != 0:
-#         print(num)
+#       if num % i == 0:
+#         break
+#     print(num)
 
 
 # 3. n1 n2가 주어졌을 때 n1, n2 사이에 있는 소수 구하기
 # import sys
 
-# n1, n2 = map(int, sys.stdin.readline().split())
+# a, b = map(int, sys.stdin.readline().split()) 
 
-# def solution(n1, n2):
-#   for n in range(n1, n2+1):
-#     if n == 1:
-#       continue
-#     for i in range(2, int(n**0.5) +1):
-#       if n % i == 0:
-#         break
-#     else: 
-#       print(n)
+# for n in range(a, b+1):
+#   if n < 2:
+#     continue
+#   for i in range(2, int(n**0.5) +1):
+#     if n % i == 0:
+#       break
+#   else: 
+#     print(n)
 
 
 # 3 다른 풀이
@@ -101,8 +101,9 @@ for i in range(m, n+1):
         
 
 
-# nums = 18
+# nums = 99
 # nums = [1,5,7,8,9,11]
+# solution(nums)
 # solution(n1, n2)
 
 # m = 3
